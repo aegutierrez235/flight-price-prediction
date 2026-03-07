@@ -7,7 +7,7 @@ Este proyecto aplica técnicas de **Machine Learning** para predecir el costo de
 ## 🚀 Aspectos Destacados del Proyecto
 
 * **🛠️ Automatización de ETL:** Diseño de una función de limpieza modular que procesa datasets de distintas clases de vuelo, garantizando la integridad de los datos y eliminando ruidos como caracteres especiales (`\n`, `\t`) y formatos de moneda inconsistentes.
-* **🧬 Ingeniería de Variables (Feature Engineering):** * Transformación de duraciones de texto a formato numérico/temporal.
+* **🧬 Ingeniería de Variables (Feature Engineering):** Transformación de duraciones de texto a formato numérico/temporal.
     * Extracción de horarios de salida y llegada para capturar la estacionalidad diaria.
 * **🤖 Modelado Avanzado:** Comparativa entre modelos de Regresión Lineal, Ridge y **Random Forest Regressor**, optimizando hiperparámetros para reducir el error cuadrático medio.
 
