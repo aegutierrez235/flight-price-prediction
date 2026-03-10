@@ -1,47 +1,76 @@
-# ✈️ Predicción de Precios de Vuelos: Business vs Economy
+# ✈️ Predicción de Precios de Vuelos: End-to-End ML Pipeline
 
-Este proyecto aplica técnicas de **Machine Learning** para predecir el costo de boletos de avión, enfrentando el reto de manejar datasets con distribuciones de precios altamente divergentes debido a la diferencia entre clases sociales de viaje.
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Machine_Learning-Scikit--Learn-orange.svg)](https://scikit-learn.org/)
+[![Status](https://img.shields.io/badge/Status-MVP_Finalizado-green.svg)]()
 
----
-
-## 🚀 Aspectos Destacados del Proyecto
-
-* **🛠️ Automatización de ETL:** Diseño de una función de limpieza modular que procesa datasets de distintas clases de vuelo, garantizando la integridad de los datos y eliminando ruidos como caracteres especiales (`\n`, `\t`) y formatos de moneda inconsistentes.
-* **🧬 Ingeniería de Variables (Feature Engineering):** Transformación de duraciones de texto a formato numérico/temporal.
-    * Extracción de horarios de salida y llegada para capturar la estacionalidad diaria.
-* **🤖 Modelado Avanzado:** Comparativa entre modelos de Regresión Lineal, Ridge y **Random Forest Regressor**, optimizando hiperparámetros para reducir el error cuadrático medio.
+Este proyecto aplica técnicas avanzadas de **Machine Learning** para predecir el costo de boletos de avión. Cubre el ciclo completo del análisis de datos: desde la ingesta y limpieza (ETL) hasta la optimización de modelos de ensamble para capturar la complejidad de los precios en la industria aeronáutica.
 
 ---
 
-## 📊 Resultados y Conclusiones
+## 🚀 Aspectos Destacados
 
-> [!IMPORTANT]
-> **El modelo Random Forest fue el ganador**, logrando identificar con éxito la brecha de magnitud entre la clase *Business* y *Economy*. Esto permite predecir fluctuaciones estacionales con un margen de error mínimo a pesar de la disparidad de precios.
-
-| Métrica | Resultado |
-| :--- | :--- |
-| **Modelo Seleccionado** | Random Forest Regressor |
-| **Capacidad de Segmentación** | Alta (Detección de nichos Business/Economy) |
-| **Estado del Proyecto** | MVP Finalizado / Listo para Producción |
+* **🛠️ Automatización de ETL:** Diseño de una función de limpieza modular que procesa datasets de distintas clases de vuelo, garantizando la integridad de los datos y estandarizando formatos de moneda inconsistentes.
+* **🧬 Feature Engineering Crítico:** * Transformación de duraciones de texto a formato numérico/temporal.
+    * Extracción de componentes de tiempo (hora/día) para capturar la estacionalidad diaria y semanal.
+* **🤖 Modelado Competitivo:** Comparativa entre **Regresión Lineal**, **Ridge** y **Random Forest Regressor**, utilizando optimización de hiperparámetros para maximizar la precisión.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-| Herramienta | Uso |
+| Herramienta | Propósito |
 | :--- | :--- |
-| **Python** | Lenguaje principal de análisis |
-| **Pandas / Numpy** | Manipulación y limpieza de datos |
-| **Scikit-Learn** | Entrenamiento y evaluación de modelos ML |
-| **Seaborn / Matplotlib** | Visualización de correlaciones y resultados |
-| **Anaconda** | Gestión de entornos y reproducibilidad |
+| **Python** | Lenguaje principal del ecosistema de datos. |
+| **Pandas / NumPy** | Limpieza profunda y manipulación de estructuras. |
+| **Scikit-Learn** | Entrenamiento, validación y tunning de modelos ML. |
+| **Seaborn / Matplotlib** | Visualización de correlaciones y análisis de importancia. |
+| **Anaconda** | Gestión de entornos y reproducibilidad del proyecto. |
 
 ---
 
-## 🔮 Futuras Implementaciones
-* [ ] Despliegue de una **API** para predicciones en tiempo real.
-* [ ] Creación de una interfaz web con **Streamlit** para consultas de usuario.
-* [ ] Integración de variables de equipaje y demanda histórica.
+## 📈 Flujo de Trabajo
+
+### 1. Preprocesamiento & Limpieza
+* **Tratamiento de Nulos:** Identificación estratégica y limpieza de registros incompletos.
+* **Parsing Temporal:** Conversión de marcas de tiempo en variables de alta relevancia (`Día_Viaje`, `Mes_Viaje`, `Hora_Salida`).
+* **Normalización de Duración:** Conversión de formatos tipo '2h 50m' a minutos totales para facilitar el aprendizaje del modelo.
+
+### 2. Análisis Exploratorio (EDA)
+* **Análisis de Aerolíneas:** Identificación de niveles de precios por proveedor.
+* **Rutas Críticas:** Evaluación del impacto del Origen/Destino en el costo final.
+* **Codificación Inteligente:** Uso de `OneHotEncoding` para variables nominales y `LabelEncoding` para estructuras ordinales.
+
+### 3. Modelado y Selección
+* **Optimización:** Implementación de `RandomizedSearchCV` para ajustar `n_estimators` y `max_depth`.
+* **Importancia de Atributos:** Uso de `ExtraTreesRegressor` para determinar qué variables (como el número de escalas o la clase) mueven realmente el precio.
 
 ---
-**Desarrollado por [aegutierrez235](https://github.com/aegutierrez235)**
+
+## 📊 Resultados y Conclusiones
+
+> [!TIP]
+> **Insight Clave:** El modelo **Random Forest Regressor** logró identificar con precisión la brecha de magnitud entre las clases *Business* y *Economy*, permitiendo predicciones confiables incluso con la alta disparidad de precios entre segmentos.
+
+### Performance del Modelo
+| Métrica | Valor / Estado |
+| :--- | :--- |
+| **Algoritmo Ganador** | `Random Forest Regressor` |
+| **Segmentación** | Alta precisión en nichos Premium/Economy |
+| **Estado del Proyecto** | **MVP Finalizado / Listo para Despliegue** |
+
+---
+
+## 🔮 Roadmap: Próximos Pasos
+- [ ] **Despliegue de API:** Crear un endpoint con FastAPI para predicciones remotas.
+- [ ] **Dashboard Interactivo:** Interfaz en **Streamlit** para que el usuario consulte precios dinámicamente.
+- [ ] **Enriquecimiento de Datos:** Integrar variables de demanda histórica y festivos nacionales.
+
+---
+
+## 📂 Estructura del Proyecto
+```bash
+├── data/               # Datasets originales y procesados
+├── model/              # Modelos serializados (.pkl)
+├── notebooks/          # Jupyter Notebook con el paso a paso detallado
+└── README.md           # Documentación del proyecto
