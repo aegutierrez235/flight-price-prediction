@@ -14,12 +14,12 @@ El análisis reveló que el factor más significativo, por un margen amplio, es 
 ### 1. ¿Qué determina el precio?
 Como se muestra en el gráfico de importancia de variables, la **Clase (Económica vs. Business)** representa más del 90% del poder de decisión del modelo. Los factores secundarios incluyen la duración del vuelo y la hora de salida.
 
-![Importancia de Variables](images/feature_importance.png)
+<img src="images/feature_importance.png" width="600">
 
 ### 2. Precisión del Modelo
 El modelo final optimizado muestra una fuerte correlación entre los precios reales y los predichos. El modelo funciona excepcionalmente bien para boletos de bajo costo, con un ligero aumento en la varianza para los segmentos de lujo o clase ejecutiva.
 
-![Real vs Predicho](images/precisión_actual_predicted.png)
+<img src="images/precisión_actual_predicted.png" width="500">
 
 ## 🚀 Rendimiento del Modelo
 Tras comparar múltiples algoritmos (Regresión Lineal, Árboles de Decisión y Random Forest), el modelo de **Random Forest Optimizado** fue el que tuvo mejor rendimiento:
