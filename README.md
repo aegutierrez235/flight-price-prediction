@@ -8,6 +8,28 @@ Este proyecto aplica técnicas avanzadas de **Machine Learning** para predecir e
 
 ---
 
+## 📊 Hallazgos Clave
+El análisis reveló que el factor más significativo, por un margen amplio, es la **Clase de Viaje**.
+
+### 1. ¿Qué determina el precio?
+Como se muestra en el gráfico de importancia de variables, la **Clase (Económica vs. Business)** representa más del 90% del poder de decisión del modelo. Los factores secundarios incluyen la duración del vuelo y la hora de salida.
+
+![Importancia de Variables](images/feature_importance.png)
+
+### 2. Precisión del Modelo
+El modelo final optimizado muestra una fuerte correlación entre los precios reales y los predichos. El modelo funciona excepcionalmente bien para boletos de bajo costo, con un ligero aumento en la varianza para los segmentos de lujo o clase ejecutiva.
+
+![Real vs Predicho](images/precisión_actual_predicted.png)
+
+## 🚀 Rendimiento del Modelo
+Tras comparar múltiples algoritmos (Regresión Lineal, Árboles de Decisión y Random Forest), el modelo de **Random Forest Optimizado** fue el que tuvo mejor rendimiento:
+
+| Métrica | Valor |
+| :--- | :--- |
+| **R² Score** | 0.98 |
+| **MAE** | ~1,200 |
+
+
 ## 🚀 Aspectos Destacados
 
 * **🛠️ Automatización de ETL:** Diseño de una función de limpieza modular que procesa datasets de distintas clases de vuelo, garantizando la integridad de los datos y estandarizando formatos de moneda inconsistentes.
